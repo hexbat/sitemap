@@ -1,0 +1,8 @@
+<html>
+    <body>
+        <h1>{{ site }}</h1>
+        {% for object in objects %}
+            <a href="{% url 'detail' object.pk %}">{{ object.title }}</a><br>
+        {% endfor%}
+    </body>
+    </html>

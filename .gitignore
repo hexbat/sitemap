@@ -1,0 +1,11 @@
+/.venv
+*/migrations/*
+!*/migrations/__init__.py
+*.py[cod] 
+*$py.class 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
