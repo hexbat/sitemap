@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.sitemaps.views import sitemap
-from main.views import TestItemList, TestItemSitemap, TestItemDetail
+from main.views import TestItemList, TestItemSitemap, TestItemDetail, TestItemSitemapSOF
 
 sitemaps = {
     'items': TestItemSitemap,
+}
+
+sitemaps_sof = {
+    'items': TestItemSitemapSOF,
 }
 
 urlpatterns = [
@@ -29,6 +33,12 @@ urlpatterns = [
         'sitemap.xml',
         sitemap,
         {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'
+        ),
+    path(
+        'sitemap_sof.xml',
+        sitemap,
+        {'sitemaps': sitemaps_sof},
         name='django.contrib.sitemaps.views.sitemap'
         ),
     path('admin/', admin.site.urls),

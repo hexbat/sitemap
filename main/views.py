@@ -32,3 +32,14 @@ class TestItemSitemap(Sitemap):
     def items(self):
         return TestItem.objects.all()
 
+
+class TestItemSitemapSOF(Sitemap):
+    _cached_site = None
+
+    def items(self):
+        return TestItem.objects.filter(site=self._cached_site)
+
+    def get_urls(self, page=1, site=None, protocol=None):
+        self._cached_site = site
+        return super(TestItemSitemapSOF, self).get_urls(page=page, site=site, protocol=protocol)
+
